@@ -6,7 +6,7 @@
     - include_tasks: nat_rules.yaml
     - include_tasks: security_rules.yaml
   always:
-    - include_tasls: commit.yaml
+    - include_tasks: commit.yaml
   rescue:
     - debug:
         msg: "There is no module for revert in PaloAlto"
