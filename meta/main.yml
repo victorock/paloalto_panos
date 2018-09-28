@@ -7,7 +7,7 @@ galaxy_info:
   min_ansible_version: 2.4.0.0
   github_branch: master
   platforms:
-    - name: GenericLinux
+    - name: panos
       versions:
         - all
   galaxy_tags:
