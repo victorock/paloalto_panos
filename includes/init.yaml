@@ -1,0 +1,14 @@
+---
+- name: set role basic facts
+  set_fact:
+    ansible_network_panos_setup_path: "{{ role_path }}"
+    ansible_network_panos_setup_version: "devel"
+
+- name: display the role version to stdout
+  debug:
+    msg: "victorock.panos_setup version is {{ ansible_network_panos_setup_version }}"
+
+- name: validate ansible_network_provider is defined
+  fail:
+    msg: "missing required setting: ansible_network_provider"
+  when: ansible_network_provider is undefined

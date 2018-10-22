@@ -1,0 +1,19 @@
+---
+- name: "panos_service_object: {{ panos_service_object.name }}"
+  environment:
+    PYTHONHTTPSVERIFY: 0
+  panos_service_object:
+    ip_address: "{{ provider.host }}"
+    username: "{{ provider.username }}"
+    password: "{{ provider.password }}"
+    name: "{{ panos_service_object.name | default(omit, true) }}"
+    protocol: "{{ panos_service_object.protocol | default(omit, true) }}"
+    source_port: "{{ panos_service_object.source_port | default(omit, true) }}"
+    destination_port: "{{ panos_service_object.destination_port | default(omit, true) }}"
+    description: "{{ panos_service_object.description | default(omit, true) }}"
+    tag: "{{ panos_service_object.tag | default(omit, true) }}"
+    vsys: "{{ panos_service_object.vsys | default(omit, true) }}"
+    device_group: "{{ panos_service_object.device_group | default(omit, true) }}"
+    state: "{{ panos_service_object.state | default('present', true) }}"
+    commit: "false"
+  notify: "save_config"

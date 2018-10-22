@@ -1,0 +1,6 @@
+---
+- name: "panos_commit"
+  panos_commit:
+    ip_address: "{{ provider.host }}"
+    username: "{{ provider.username }}"
+    password: "{{ provider.password }}"

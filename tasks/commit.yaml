@@ -1,5 +1,2 @@
 - name: "commit: Save configuration"
-  panos_commit:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
+  include_tasks: "includes/panos_commit.yaml"

@@ -1,13 +1,13 @@
 galaxy_info:
   role_name: panos_setup
   author: Victor da Costa
-  description: Data-driven setup implementation of panos modules.
+  description: Data-driven implementation of panos modules.
   company: Ansible by Red Hat
   license: GPLv3
   min_ansible_version: 2.4.0.0
   github_branch: master
   platforms:
-    - name: panos
+    - name: GenericLinux
       versions:
         - all
   galaxy_tags:

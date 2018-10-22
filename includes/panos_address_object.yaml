@@ -1,0 +1,18 @@
+---
+- name: "panos_address_object: {{ panos_address_object.name }}"
+  environment:
+    PYTHONHTTPSVERIFY: 0
+  panos_address_object:
+    ip_address: "{{ provider.host }}"
+    username: "{{ provider.username }}"
+    password: "{{ provider.password }}"
+    name: "{{ panos_address_object.name | default(omit, true) }}"
+    value: "{{ panos_address_object.value | default(omit, true) }}"
+    address_type: "{{ panos_address_object.address_type | default(omit, true) }}"
+    description: "{{ panos_address_object.description | default(omit, true) }}"
+    tag: "{{ panos_address_object.tag | default(omit, true) }}"
+    vsys: "{{ panos_address_object.vsys | default(omit, true) }}"
+    device_group: "{{ panos_address_object.device_group | default(omit, true) }}"
+    state: "{{ panos_address_object.state | default('present', true) }}"
+    commit: "false"
+  notify: "save_config"

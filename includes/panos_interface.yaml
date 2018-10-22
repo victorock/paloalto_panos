@@ -1,0 +1,19 @@
+---
+- name: "panos_interface: {{ panos_interface.name }}"
+  environment:
+    PYTHONHTTPSVERIFY: 0
+  panos_interface:
+    ip_address: "{{ provider.host }}"
+    username: "{{ provider.username }}"
+    password: "{{ provider.password }}"
+    ip: "{{ panos_interface.ip | default(omit, true) }}"
+    mode: "{{ panos_interface.mode | default(omit, true) }}"
+    enable_dhcp: "{{ panos_interface.enable_dhcp | default(omit, true) }}"
+    if_name: "{{ panos_interface.name }}"
+    zone_name: "{{ panos_interface.zone | default('untrust') }}"
+    management_profile: "{{ panos_interface.management_profile | default(omit, true) }}"
+    vr_name: "{{ panos_interface.vr_name | default(omit, true) }}"
+    create_default_route: "{{ panos_interface.default_route | default(omit, true) }}"
+    state: "{{ panos_interface.state | default('present') }}"
+    commit: "false"
+  notify: "save_config"
