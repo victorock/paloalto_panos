@@ -19,3 +19,4 @@
     - name: "display message"
       fail:
         msg: "revert NOT IMPLEMENTED"
+      when: panos_config_rollback_enabled

@@ -16,4 +16,5 @@ galaxy_info:
     - firewall
     - security
 dependencies:
+  - ansible-network.network-engine
   - paloaltonetworks.paloaltonetworks
