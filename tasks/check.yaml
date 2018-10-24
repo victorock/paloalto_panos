@@ -1,2 +1,0 @@
-- name: "panos_check: Validate API"
-  include_tasks: "includes/panos_check.yaml"

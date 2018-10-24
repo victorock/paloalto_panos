@@ -1,2 +1,0 @@
-- name: "commit: Save configuration"
-  include_tasks: "includes/panos_commit.yaml"

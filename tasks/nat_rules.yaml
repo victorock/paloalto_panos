@@ -1,6 +1,0 @@
----
-- name: "nat_rules: Ensure state of panos_nat_rules"
-  include_tasks: "includes/panos_nat_rule.yaml"
-  loop: "{{ panos_nat_rules }}"
-  loop_control:
-    loop_var: panos_nat_rule

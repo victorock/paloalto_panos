@@ -4,22 +4,19 @@
 
 - name: set role supported functions
   set_fact:
-    panos_setup_functions:
-      - check
-      - commit
+    paloalto_panos_functions:
+      - ping
       - interfaces
-      - nat_rules
       - noop
       - objects
       - run
-      - security_rules
+      - rules
       - system
-
 
 - name: validate the requested function is supported
   fail:
-    msg: "invalid function specified, expected one of {{ panos_setup_functions }}, got {{ function }}"
-  when: function | default('noop') not in panos_setup_functions
+    msg: "invalid function specified, expected one of {{ paloalto_panos_functions }}, got {{ function }}"
+  when: function | default('noop') not in paloalto_panos_functions
 
 - name: include function specific tasks and run
   include_tasks: "{{ function  | default('noop') }}.yaml"

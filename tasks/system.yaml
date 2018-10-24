@@ -1,24 +1,12 @@
-#- name: system: Validate entries spec"
-#  delegate_to: localhost
-#  validate_role_spec:
-#    spec: system_spec.yaml
-
+---
 - name: "system: Ensure state of system"
-  environment:
-    PYTHONHTTPSVERIFY: 0
-  panos_mgtconfig:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
-    hostname: "{{ panos_system.hostname | default(omit, true) }}"
-    domain: "{{ panos_system.domain | default(omit, true) }}"
-    login_banner: "{{ panos_system.login_banner | default(omit, true) }}"
-    update_server: "{{ panos_system.update_server | default(omit, true) }}"
-    devicegroup: "{{ panos_system.devicegroup | default(omit, true) }}"
-    dns_server_primary: "{{ panos_system.dns_server_primary | default(omit, true) }}"
-    dns_server_secondary: "{{ panos_system.dns_server_secondary | default(omit, true) }}"
-    panorama_primary: "{{ panos_system.panorama_primary | default(omit, true) }}"
-    panorama_secondary: "{{ panos_system.panorama_secondary | default(omit, true) }}"
-    ntp_server_primary: "{{ panos_system.ntp_server_primary | default(omit, true) }}"
-    ntp_server_secondary: "{{ panos_system.ntp_server_secondary | default(omit, true) }}"
-    commit: false
+  block:
+    - name: "panos_system"
+      include_tasks: "{{ roles_path }}/includes/panos_mgtconfig.yaml"
+      vars:
+        panos_mgtconfig: "{{ panos_system }}"
+
+  rescue:
+    - name: "display message"
+      fail:
+        msg: "revert NOT IMPLEMENTED"

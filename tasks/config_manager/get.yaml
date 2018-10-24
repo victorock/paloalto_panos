@@ -1,0 +1,7 @@
+---
+- name: "initialize function"
+  include_tasks: "{{ roles_path }}/includes/init.yaml"
+
+- name: "display message"
+  fail:
+    msg: "get NOT IMPLEMENTED"

@@ -1,7 +1,7 @@
 galaxy_info:
-  role_name: panos_setup
+  role_name: paloalto_panos
   author: Victor da Costa
-  description: Data-driven implementation of panos modules.
+  description: Data-driven Provider for panos modules.
   company: Ansible by Red Hat
   license: GPLv3
   min_ansible_version: 2.4.0.0

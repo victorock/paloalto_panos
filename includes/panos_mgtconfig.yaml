@@ -1,0 +1,20 @@
+---
+- name: "system: Ensure state of system"
+  environment:
+    PYTHONHTTPSVERIFY: 0
+  panos_mgtconfig:
+    ip_address: "{{ provider.host }}"
+    username: "{{ provider.username }}"
+    password: "{{ provider.password }}"
+    hostname: "{{ panos_mgtconfig.hostname | default(omit, true) }}"
+    domain: "{{ panos_mgtconfig.domain | default(omit, true) }}"
+    login_banner: "{{ panos_mgtconfig.login_banner | default(omit, true) }}"
+    update_server: "{{ panos_mgtconfig.update_server | default(omit, true) }}"
+    devicegroup: "{{ panos_mgtconfig.devicegroup | default(omit, true) }}"
+    dns_server_primary: "{{ panos_mgtconfig.dns_servers[0] | default(omit, true) }}"
+    dns_server_secondary: "{{ panos_mgtconfig.dns_servers[1] | default(omit, true) }}"
+    panorama_primary: "{{ panos_mgtconfig.panoramas[0] | default(omit, true) }}"
+    panorama_secondary: "{{ panos_mgtconfig.panoramas[1] | default(omit, true) }}"
+    ntp_server_primary: "{{ panos_mgtconfig.ntp_servers[0] | default(omit, true) }}"
+    ntp_server_secondary: "{{ panos_mgtconfig.ntp_servers[1] | default(omit, true) }}"
+    commit: false

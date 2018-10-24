@@ -1,4 +1,4 @@
 ---
-- name: display mesage
+- name: "role noop"
   debug:
-    msg: "role version is {{ ansible_network_panos_setup_version }}"
+    msg: "{{ role_path }}"
