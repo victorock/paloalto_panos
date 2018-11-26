@@ -15,6 +15,6 @@
     dns_server_secondary: "{{ panos_mgtconfig.dns_server_secondary | default(omit, true) }}"
     panorama_primary: "{{ panos_mgtconfig.panorama_primary | default(omit, true) }}"
     panorama_secondary: "{{ panos_mgtconfig.panorama_secondary | default(omit, true) }}"
-    ntp_server_primary: "{{ panos_mgtconfig.ntp_servers | default([]) | first or default(omit, true) }}"
-    ntp_server_secondary: "{{ panos_mgtconfig.ntp_servers | default([]) | last or default(omit, true) }}"
+    ntp_server_primary: "{{ panos_mgtconfig.ntp_server_primary | default(omit, true) }}"
+    ntp_server_secondary: "{{ panos_mgtconfig.ntp_server_secondary | default(omit, true) }}"
     commit: false
