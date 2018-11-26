@@ -2,7 +2,7 @@
 - name: "interfaces: Ensure state of interfaces"
   block:
     - name: "panos_interfaces"
-      include_tasks: "{{ roles_path }}/includes/panos_interface.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_interface.yaml"
       loop: "{{ panos_interfaces }}"
       loop_control:
         loop_var: panos_interface

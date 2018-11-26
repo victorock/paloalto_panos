@@ -2,13 +2,13 @@
 - name: "objects: Ensure state of objects"
   block:
     - name: "panos_address_object"
-      include_tasks: "{{ roles_path }}/includes/panos_address_object.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_address_object.yaml"
       loop: "{{ panos_address_objects }}"
       loop_control:
         loop_var: panos_address_object
 
     - name: "objects: Ensure state of panos_service_objects"
-      include_tasks: "{{ roles_path }}/includes/panos_service_object.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_service_object.yaml"
       loop: "{{ panos_service_objects }}"
       loop_control:
         loop_var: panos_service_object

@@ -1,2 +1,2 @@
 - name: "panos_check: Validate API"
-  include_tasks: "{{ roles_path }}/includes/panos_check.yaml"
+  include_tasks: "{{ role_path }}/includes/panos_check.yaml"
