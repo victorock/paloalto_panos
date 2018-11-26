@@ -1,5 +1,7 @@
 ---
 - name: "panos_commit"
+  environment:
+    PYTHONHTTPSVERIFY: 0
   panos_commit:
     ip_address: "{{ provider.host }}"
     username: "{{ provider.username }}"
