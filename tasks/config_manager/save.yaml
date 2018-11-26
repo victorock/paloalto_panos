@@ -1,6 +1,6 @@
 ---
 - name: initialize function
-  include_tasks: "{{ roles_path }}/includes/init.yaml"
+  include_tasks: "{{ role_path }}/includes/init.yaml"
 
 - name: "commit configuration"
-  include_tasks: "{{ roles_path }}/includes/panos_commit.yaml"
+  include_tasks: "{{ role_path }}/includes/panos_commit.yaml"

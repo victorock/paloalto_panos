@@ -1,6 +1,6 @@
 ---
 - name: "initialize function"
-  include_tasks: "{{ roles_path }}/includes/init.yaml"
+  include_tasks: "{{ role_path }}/includes/init.yaml"
 
 - name: "validate role spec"
   validate_role_spec:
@@ -24,13 +24,13 @@
 - name: "configure target device"
   block:
     - name: "import configuration file to the device"
-      include_tasks: "{{ roles_path }}/includes/panos_import.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_import.yaml"
       vars:
         panos_import_file: "{{ panos_config_temp_dir.path }}/panos_config.xml"
         panos_import_category: "configuration"
 
     - name: "load configuration file from the device"
-      include_tasks: "{{ roles_path }}/includes/panos_loadcfg.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_loadcfg.yaml"
       vars:
         panos_loadcfg_file: "{{ r_panos_import.filename }}"
 
@@ -51,4 +51,4 @@
   
   always:
     - name: "save configuration to ensure consitency"
-      include_tasks: "{{ roles_path }}/includes/panos_commit.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_commit.yaml"

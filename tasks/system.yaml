@@ -2,7 +2,7 @@
 - name: "system: Ensure state of system"
   block:
     - name: "panos_system"
-      include_tasks: "{{ roles_path }}/includes/panos_mgtconfig.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_mgtconfig.yaml"
       vars:
         panos_mgtconfig: "{{ panos_system }}"
 
