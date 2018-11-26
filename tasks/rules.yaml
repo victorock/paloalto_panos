@@ -2,13 +2,13 @@
 - name: "rules: Ensure state of rules"
   block:
     - name: "panos_security_rules"
-      include_tasks: "{{ roles_path }}/includes/panos_security_rule.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_security_rule.yaml"
       loop: "{{ panos_security_rules }}"
       loop_control:
         loop_var: panos_security_rule
 
     - name: "panos_nat_rules"
-      include_tasks: "{{ roles_path }}/includes/panos_nat_rule.yaml"
+      include_tasks: "{{ role_path }}/includes/panos_nat_rule.yaml"
       loop: "{{ panos_nat_rules }}"
       loop_control:
         loop_var: panos_nat_rule
