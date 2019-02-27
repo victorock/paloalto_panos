@@ -1,5 +1,5 @@
-- name: "check"
-  include_tasks: check.yaml
+- name: "ping"
+  include_tasks: ping.yaml
 
 - name: "panos_setup"
   block:
