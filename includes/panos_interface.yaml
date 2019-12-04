@@ -3,9 +3,7 @@
   environment:
     PYTHONHTTPSVERIFY: 0
   panos_interface:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
+    provider: "{{ provider | default(__paloalto_panos_provider) }}"
     ip: "{{ panos_interface.ip | default(omit, true) }}"
     mode: "{{ panos_interface.mode | default(omit, true) }}"
     enable_dhcp: "{{ panos_interface.enable_dhcp | default(omit, true) }}"

@@ -3,9 +3,7 @@
   environment:
     PYTHONHTTPSVERIFY: 0
   panos_mgtconfig:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
+    provider: "{{ provider | default(__paloalto_panos_provider) }}"
     hostname: "{{ panos_mgtconfig.hostname | default(omit, true) }}"
     domain: "{{ panos_mgtconfig.domain | default(omit, true) }}"
     login_banner: "{{ panos_mgtconfig.login_banner | default(omit, true) }}"

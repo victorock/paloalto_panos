@@ -3,9 +3,7 @@
   environment:
     PYTHONHTTPSVERIFY: 0
   panos_address_object:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
+    provider: "{{ provider | default(__paloalto_panos_provider) }}"
     name: "{{ panos_address_object.name | default(omit, true) }}"
     value: "{{ panos_address_object.value | default(omit, true) }}"
     address_type: "{{ panos_address_object.address_type | default(omit, true) }}"

@@ -3,9 +3,7 @@
   environment:
     PYTHONHTTPSVERIFY: 0
   panos_security_rule:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
+    provider: "{{ provider | default(__paloalto_panos_provider) }}"
     rule_name: "{{ panos_security_rule.rule_name | default(omit, true) }}"
     source_zone: "{{ panos_security_rule.source_zone | default(omit, true) }}"
     source_ip: "{{ panos_security_rule.source_ip | default(omit, true) }}"

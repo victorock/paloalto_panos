@@ -3,9 +3,9 @@
   environment:
     PYTHONHTTPSVERIFY: 0
   panos_loadcfg:
-    ip_address: "{{ provider.host }}"
-    username: "{{ provider.username }}"
-    password: "{{ provider.password }}"
+    ip_address: "{{ provider.host | default(__paloalto_panos_provider.ip_address) }}"
+    username: "{{ provider.username | default(__paloalto_panos_provider.username) }}"
+    password: "{{ provider.password | default(__paloalto_panos_provider.password) }}"
     file: "{{ panos_loadcfg_file }}"
     commit: false
   notify: "save_config"
